@@ -1,0 +1,55 @@
+<% if user_signed_in? %>
+  <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
+<% end %>
+<div class="row">
+  <div class="col">
+    <div class="card mt-5">
+      <div class="card-body">
+        <div class="card-title">
+          <h5>2022年4月28日</h5>
+        </div>
+        <h6 class="text-muted">本日の取引</h6>
+        <div class="row d-flex">
+          <div class="col-1">
+            <p>1234</p>
+          </div>
+          <div class="col-2">
+            <p>トヨータ</p>
+          </div>
+          <div class="col-1">
+            <p>+12,500</p>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="col-1">
+            <p>3333</p>
+          </div>
+          <div class="col-2">
+            <p>ハードバンク</p>
+          </div>
+          <div class="col-1">
+            <p>-5,500</p>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="col-1">
+            <p>7775</p>
+          </div>
+          <div class="col-2">
+            <p>ビームテック</p>
+          </div>
+          <div class="col-1">
+            <p>+7,500</p>
+          </div>
+        </div>
+        <h6 class="text-muted">本日の収支</h6>
+          <div class="row">
+            <div class="col-1">
+              <p>+14,000</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+

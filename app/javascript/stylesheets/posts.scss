@@ -1,0 +1,28 @@
+.delete-post-icon {
+  background-image: url("~parts9");
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  background-size: 20px !important;
+  color: #262626;
+  font-size: 20px;
+}
+
+.post-nav {
+  list-style: none;
+  align-items: center;
+  display: inherit;
+  & > li {
+    margin-left: 20px;
+  }
+}
+
+.delete-comment {
+  background-image: url("~parts8");
+  background-repeat: no-repeat;
+  width: 11px;
+  height: 11px;
+  float: right;
+  margin: 5px 0 0 10px;
+  background-size: 11px !important;
+}
