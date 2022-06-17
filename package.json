@@ -16,6 +16,5 @@
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^4.8.1"
-  },
-  "@rails/webpacker": "5.4.3"
+  }
 }
