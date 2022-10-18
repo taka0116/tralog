@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_09_115011) do
+ActiveRecord::Schema.define(version: 2022_10_11_025823) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment", null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2022_06_09_115011) do
     t.string "trade"
     t.string "currency"
     t.string "stock_index"
+    t.date "traded_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

@@ -7,7 +7,7 @@
             title: post.user.name do %>
             <strong><%= post.user.name %></strong>
           <% end %>
-          <h5 class="my-0 pl-3"><%= post.created_at.strftime('%Y年%m月%d日') %></h5>
+          <h5 class="my-0 pl-3"><%= post.traded_at.strftime('%Y年%m月%d日') %></h5>
           <h5 class="my-0 pl-1">取引結果</h5>
           <% if post.user_id == current_user.id %>
             <ul class="post-nav ml-auto">
@@ -27,27 +27,49 @@
         </div>
         <div class="card-body">
           <div class="row">
+          <% if post.stock_name.present? %>
             <div class="col-3 ">
               <p class="font-weight-bold"><%= post.trade %></p>
             </div>
-            <div class="col-3 text-right">
+            <div class="col-2 ">
               <p><%= post.stock_code %></p>
             </div>
-            <div class="col-6">
+            <div class="col-3">
               <p><%= post.stock_name %></p>
             </div>
-            <div class="col-3 text-right">
-              <p><%= post.currency %></p>
-            </div>
-            <div class="col-3 text-right">
-              <p><%= post.stock_index %></p>
-            </div>
-            <div class="col-3 text-right">
+            <div class="col-2 text-right">
               <p>損益</p>
             </div>
-            <div class="col-3">
+            <div class="col-2">
               <p><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
             </div>
+          <% elsif post.currency.present? %>
+            <div class="col-3 ">
+              <p class="font-weight-bold"><%= post.trade %></p>
+            </div>
+            <div class="col-5 ">
+              <p><%= post.currency %></p>
+            </div>
+            <div class="col-2 text-right">
+              <p>損益</p>
+            </div>
+            <div class="col-2">
+              <p><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+            </div>
+          <% elsif post.stock_index.present? %>
+            <div class="col-3 ">
+              <p class="font-weight-bold"><%= post.trade %></p>
+            </div>
+            <div class="col-5 ">
+              <p><%= post.stock_index %></p>
+            </div>
+            <div class="col-2 text-right">
+              <p>損益</p>
+            </div>
+            <div class="col-2">
+              <p><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+            </div>
+          <% end %>  
           </div>
           <h6 class="text-primary">メモ</h6>
           <div class="row">

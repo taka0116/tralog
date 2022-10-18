@@ -46,7 +46,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:trade, :stock_code, :stock_name, :currency, :stock_index, :profit, :memo, photos_attributes: [:image]).merge(user_id: current_user.id)
+      params.require(:post).permit(:traded_at, :trade, :stock_code, :stock_name, :currency, :stock_index, :profit, :memo, photos_attributes: [:image]).merge(user_id: current_user.id)
     end
 
     def set_post

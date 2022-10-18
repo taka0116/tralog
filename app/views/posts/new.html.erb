@@ -6,14 +6,20 @@
       </div>
       <div class="card-body">
         <div class="card-text text-center mb-5">
-          <h5>今日の取引明細</h5>
+          <h5>取引明細</h5>
         </div>
-        <%= form_with model: @post do |f| %>
-
+        <%= form_with model: @post, local: true do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+          <div class="form-group row mt-2">
+            <div class="col">
+              <%= f.label :日時, class: "form-label"  %>
+              <%= f.date_field :traded_at, class: "form-control" %>
+            </div>
+          </div>
           <div class="form-group row mt-2">
             <div class="col">
               <%= f.label :トレード, class: "form-label" %>
-              <%= f.select :trade, [["株式", "株式）"], ["FX/為替", "FX/為替）"], ["指数先物", "指数先物）"]], include_blank: "選択して下さい" , class: "form-select" %>
+              <%= f.select :trade, [["株式", "株式）"], ["外国為替", "外国為替）"], ["株価指数", "株価指数）"]], include_blank: "選択して下さい" , class: "form-select" %>
             </div>
           </div>
           <div class="form-group row mt-2">
@@ -24,7 +30,7 @@
           </div>
           <div class="form-group row mt-2">
             <div class="col">
-              <%= f.label :株）銘柄, class: "form-label"  %>
+              <%= f.label :株）銘柄【６文字以内】, class: "form-label"  %>
               <%= f.text_field :stock_name, placeholder: "ハードバンク", class: "form-control" %>
             </div>
           </div>
@@ -42,7 +48,7 @@
           </div>
           <div class="form-group row mt-2">
             <div class="col">
-              <%= f.label :損益【必須】, class: "form-label"  %>
+              <%= f.label :損益, class: "form-label"  %>
               <%= f.text_field :profit, placeholder: "13500", class: "form-control" %>
             </div>
           </div>
