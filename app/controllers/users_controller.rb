@@ -14,11 +14,9 @@ class UsersController < ApplicationController
     @posts.each do |post|
       if (post[:traded_at].to_s.match(/#{Date.today.to_s}.+/))
         @day_profit += post[:profit].to_i
-      end
-      if (this_week.include?(Date.parse(post[:traded_at].to_s)))
+      elsif (this_week.include?(Date.parse(post[:traded_at].to_s)))
         @week_profit += post[:profit].to_i
-      end
-      if (this_month.include?(Date.parse(post[:traded_at].to_s)))
+      elsif (this_month.include?(Date.parse(post[:traded_at].to_s)))
         @month_profit += post[:profit].to_i
       end 
     end
