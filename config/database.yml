@@ -11,20 +11,14 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-# production:
-#   <<: *default
-#   adapter: postgresql
-#   encoding: unicode
-#   pool: 5
-
 production:
  <<: *default
  adapter: mysql2
  encoding: utf8
  pool: 5
  reconnect: false
- database: 7e7c86a778957d2a0be1d93e87507973
- username: 7e7c86a778957d2a0be1d93e87507973
- password: Sunsunpinpin107
- host: mysql-2.mc.lolipop.lan
+ database: <%= ENV["MC_DATABASE"] %>
+ username: <%= ENV["MC_DB_USERNAME"] %>
+ password: <%= ENV["MC_DB_PASSWORD"] %>
+ host: <%= ENV["MC_DB_HOSTNAME"] %>
 
