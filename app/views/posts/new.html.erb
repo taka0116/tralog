@@ -19,7 +19,7 @@
           <div class="form-group row mt-2">
             <div class="col">
               <%= f.label :トレード, class: "form-label" %>
-              <%= f.select :trade, [["株式", "株式）"], ["外国為替", "外国為替）"], ["株価指数", "株価指数）"]], include_blank: "選択して下さい" , class: "form-select" %>
+              <%= f.select :trade, [["株式", "株式）"], ["FX", "FX）"], ["CFD", "CFD）"]], include_blank: "選択して下さい" , class: "form-select" %>
             </div>
           </div>
           <div class="form-group row mt-2">
@@ -36,14 +36,14 @@
           </div>
           <div class="form-group row mt-2">
             <div class="col">
-              <%= f.label :FX）通貨, class: "form-label" %>
-              <%= f.select :currency, [["FXではない", ""], ["ドル円", "ドル円"], ["ポンド円", "ポンド円"], ["ユーロ円", "ユーロ円"], ["豪ドル円", "豪ドル円"]], include_blank: "選択して下さい", class: "form-select" %>
+              <%= f.label :ＦＸ）通貨, class: "form-label" %>
+              <%= f.select :currency, [["ドル円", "ドル円"], ["ポンド円", "ポンド円"], ["ユーロ円", "ユーロ円"], ["豪ドル円", "豪ドル円"]], include_blank: "選択して下さい", class: "form-select" %>
             </div>
           </div>
           <div class="form-group row mt-2">
             <div class="col">
-              <%= f.label :指数先物）指数, class: "form-label" %>
-              <%= f.select :stock_index, [["指数先物ではない", ""], ["日経平均", "日経平均"], ["DOW", "DOW"], ["S&P", "S&P"], ["NASDAQ", "NASDAQ"]], include_blank: "選択して下さい", class: "form-select" %>
+              <%= f.label :ＣＦＤ）指数, class: "form-label" %>
+              <%= f.select :stock_index, [["日経225", "日経225"], ["NYダウ30", "NYダウ30"], ["S&P500", "S&P500"], ["NASDAQ100", "NASDAQ100"], ["ユーロ50", "ユーロ50"], ["インドNIF", "インドNIF"]], include_blank: "選択して下さい", class: "form-select" %>
             </div>
           </div>
           <div class="form-group row mt-2">
