@@ -20,4 +20,10 @@ class User < ApplicationRecord
     result
   end
 
+  def monthly_profit
+    start_of_month = Time.now.beginning_of_month
+    end_of_month = Time.now.end_of_month
+    posts.where(created_at: start_of_month..end_of_month).sum(:profit)
+  end
+
 end

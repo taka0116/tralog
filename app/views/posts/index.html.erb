@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
-  <div class="col-8 mx-auto ">
+  <div class="col-10 mx-auto ">
     <div class="card-wrap my-4">
       <div class="card">
         <div class="card-header align-items-center d-flex">
@@ -41,7 +41,11 @@
               <p>損益</p>
             </div>
             <div class="col-2">
-              <p><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+              <% if post.profit < 0 %>
+                <p style="color: red;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+              <% else %>
+                <p style="color: blue;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+              <% end %>
             </div>
           <% elsif post.currency.present? %>
             <div class="col-3 ">
@@ -54,7 +58,11 @@
               <p>損益</p>
             </div>
             <div class="col-2">
-              <p><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+              <% if post.profit < 0 %>
+                <p style="color: red;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+              <% else %>
+                <p style="color: blue;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+              <% end %>
             </div>
           <% elsif post.stock_index.present? %>
             <div class="col-3 ">
@@ -67,7 +75,25 @@
               <p>損益</p>
             </div>
             <div class="col-2">
-              <p><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+              <% if post.profit < 0 %>
+                <p style="color: red;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+              <% else %>
+                <p style="color: blue;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="col-8 ">
+              <p class="font-weight-bold"><%= post.trade %></p>
+            </div>
+            <div class="col-2 text-right">
+              <p>損益</p>
+            </div>
+            <div class="col-2">
+              <% if post.profit < 0 %>
+                <p style="color: red;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+              <% else %>
+                <p style="color: blue;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+              <% end %>
             </div>
           <% end %>  
           </div>

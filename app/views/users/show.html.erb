@@ -50,15 +50,27 @@
           <tbody>
             <tr>
               <th scope="row">今日の損益</th>
-              <td><%= sprintf("%+d",@day_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+              <% if @day_profit < 0 %>
+                <td style="color: red;"><%= sprintf("%+d",@day_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+              <% else %>
+                <td style="color: blue;"><%= sprintf("%+d",@day_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+              <% end %>
             </tr>
             <tr>
               <th scope="row">今週の損益</th>
-              <td><%= sprintf("%+d",@week_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+              <% if @week_profit < 0 %>
+                <td style="color: red;"><%= sprintf("%+d",@week_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+              <% else %>
+                <td style="color: blue;"><%= sprintf("%+d",@week_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+              <% end %>
             </tr>
             <tr>
               <th scope="row">今月の損益</th>
-              <td><%= sprintf("%+d",@month_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>  
+              <% if @month_profit < 0 %>
+                <td style="color: red;"><%= sprintf("%+d",@month_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+              <% else %>
+                <td style="color: blue;"><%= sprintf("%+d",@month_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+              <% end %> 
             </tr>
           </tbody>
         </table>

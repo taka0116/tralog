@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   # get '/users/:id', to: 'users#show', as: 'user'
-  resources :users, only: %i(show)
+  resources :users, only: %i(show index)
 
   resources :posts, only: %i(new create index destroy edit update) do
     resources :photos, only: %i(create)

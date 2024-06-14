@@ -12,50 +12,50 @@
         <%= render 'layouts/error_messages', model: f.object %>
           <div class="form-group row mt-2">
             <div class="col">
-              <%= f.label :日時, class: "form-label"  %>
+              <%= f.label :取引日（必須）, class: "form-label text-danger"  %>
               <%= f.date_field :traded_at, class: "form-control" %>
             </div>
           </div>
           <div class="form-group row mt-2">
             <div class="col">
-              <%= f.label :トレード, class: "form-label" %>
-              <%= f.select :trade, [["株式", "株式）"], ["FX", "FX）"], ["CFD", "CFD）"]], include_blank: "選択して下さい" , class: "form-select" %>
+              <%= f.label :トレード（必須）, class: "form-label text-danger" %>
+              <%= f.select :trade, [["日本株", "日本株）"],["米国株", "米国株）"],["投資信託", "投資信託）"],["海外ETF", "海外ETF）"],  ["FX", "FX）"], ["CFD", "CFD）"], ["その他", "その他）"]], include_blank: "選択して下さい" , class: "form-select" %>
             </div>
           </div>
           <div class="form-group row mt-2">
             <div class="col">
-              <%= f.label :株）コード, class: "form-label"  %>
-              <%= f.text_field :stock_code, placeholder: "1357", class: "form-control" %>
-            </div>
-          </div>
-          <div class="form-group row mt-2">
-            <div class="col">
-              <%= f.label :株）銘柄【６文字以内】, class: "form-label"  %>
-              <%= f.text_field :stock_name, placeholder: "ハードバンク", class: "form-control" %>
-            </div>
-          </div>
-          <div class="form-group row mt-2">
-            <div class="col">
-              <%= f.label :ＦＸ）通貨, class: "form-label" %>
-              <%= f.select :currency, [["ドル円", "ドル円"], ["ポンド円", "ポンド円"], ["ユーロ円", "ユーロ円"], ["豪ドル円", "豪ドル円"]], include_blank: "選択して下さい", class: "form-select" %>
-            </div>
-          </div>
-          <div class="form-group row mt-2">
-            <div class="col">
-              <%= f.label :ＣＦＤ）指数, class: "form-label" %>
-              <%= f.select :stock_index, [["日経225", "日経225"], ["NYダウ30", "NYダウ30"], ["S&P500", "S&P500"], ["NASDAQ100", "NASDAQ100"], ["ユーロ50", "ユーロ50"], ["インドNIF", "インドNIF"]], include_blank: "選択して下さい", class: "form-select" %>
-            </div>
-          </div>
-          <div class="form-group row mt-2">
-            <div class="col">
-              <%= f.label :損益, class: "form-label"  %>
+              <%= f.label :損益（必須）, class: "form-label text-danger"  %>
               <%= f.text_field :profit, placeholder: "13500", class: "form-control" %>
             </div>
           </div>
           <div class="form-group row mt-2">
             <div class="col">
-              <%= f.label :メモ, class: "form-label"  %>
-              <%= f.text_area :memo, placeholder: "ワンナイトスイング", class: "form-control" %>
+              <%= f.label :株）コード（任意）, class: "form-label"  %>
+              <%= f.text_field :stock_code, placeholder: "1357", class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group row mt-2">
+            <div class="col">
+              <%= f.label :株）銘柄【６文字以内】（任意）, class: "form-label"  %>
+              <%= f.text_field :stock_name, placeholder: "ハードバンク", class: "form-control" %>
+            </div>
+          </div>
+          <div class="form-group row mt-2">
+            <div class="col">
+              <%= f.label :ＦＸ）通貨（任意）, class: "form-label" %>
+              <%= f.select :currency, [["米ドル/円", "米ドル/円"], ["ユーロ/円", "ユーロ/円"], ["英ポンド/円", "英ポンド/円"], ["豪ドル/円", "豪ドル/円"], ["ユーロ/米ドル", "ユーロ/米ドル"], ["英ポンド/米ドル", "英ポンド/米ドル"]], include_blank: "選択して下さい", class: "form-select" %>
+            </div>
+          </div>
+          <div class="form-group row mt-2">
+            <div class="col">
+              <%= f.label :ＣＦＤ）指数（任意）, class: "form-label" %>
+              <%= f.select :stock_index, [["日経225", "日経225"], ["NYダウ30", "NYダウ30"], ["S&P500", "S&P500"], ["NASDAQ100", "NASDAQ100"], ["ユーロ50", "ユーロ50"], ["インドNIF", "インドNIF"]], include_blank: "選択して下さい", class: "form-select" %>
+            </div>
+          </div>
+          <div class="form-group row mt-2">
+            <div class="col">
+              <%= f.label :メモ（任意）, class: "form-label"  %>
+              <%= f.text_area :memo, placeholder: "投資信託：楽天･NASDAQ-100", class: "form-control" %>
             </div>
           </div>
           <div class="form-group row mt-2">

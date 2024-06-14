@@ -1,0 +1,39 @@
+<div class="profile-wrap">
+  <div class="d-flex flex-column align-items-center">
+    <div class="row">
+      <div class="col-10">
+        <div class="row profile-result">
+          <div class="col-md-12 text-center">
+            <table class="table table-bordered">
+              <thead class="table-warning">
+                <tr>
+                  <th colspan="3" class="table-title">今月のユーザーランキング</th>
+                </tr>
+              </thead>
+              <thead class="table-secondary">
+                <tr>
+                  <th scope="row">順位</th>
+                  <th scope="row">ユーザー名</th>
+                  <th scope="row">損益合計</th>
+                </tr>
+              </thead>
+              <tbody>
+              <% @users.each_with_index do |user, index| %>
+                <tr>
+                  <td><%= index + 1 %></td>
+                  <td><%= user.name %></td>
+                  <% if user.monthly_profit < 0 %>
+                    <td style="color: red;"><%= sprintf("%+d",user.monthly_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+                  <% else %>
+                    <td style="color: blue;"><%= sprintf("%+d",user.monthly_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+                  <% end %>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>    
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
