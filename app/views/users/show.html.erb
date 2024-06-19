@@ -1,12 +1,9 @@
 <div class="profile-wrap">
   <div class="d-flex flex-column align-items-center">
     <div class="row profile-top">
-      <div class="col-md-4 text-center">
-        <%= image_tag avatar_url(@user), class: "round-img" %>
-      </div>
-      <div class="col-md-8">
-        <div class="row">
-          <h2><%= @user.name %></h2>
+      <div class="col-md-12">
+        <div class="row justify-content-center">
+          <h2 class="user_name"><%= @user.name %></h2>
           <% if @user = current_user %>
             <%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark common-btn edit-profile-btn" %>
             <button type="button" class="setting" data-toggle="modal" data-target="#exampleModal"></button>
@@ -29,13 +26,6 @@
             </div>
           </div>
         </div>
-        <% if @user == current_user %>
-          <div class="row">
-            <p>
-              <%= @user.email %>
-            </p>
-          </div>
-        <% end %>
       </div>
     </div>
   
@@ -44,32 +34,40 @@
         <table class="table table-bordered">
           <thead class="table-success">
             <tr>
-              <th colspan="2" class="table-title">損益状況</th>
+              <th colspan="2" class="table-title">損益状況データ</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">今日の損益</th>
-              <% if @day_profit < 0 %>
-                <td style="color: red;"><%= sprintf("%+d",@day_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+              <% if @today_profit < 0 %>
+                <td style="color: red;"><%= number_to_currency(@today_profit, :locale => 'jp') %></td>
               <% else %>
-                <td style="color: blue;"><%= sprintf("%+d",@day_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+                <td style="color: blue;"><%= number_to_currency(@today_profit, :locale => 'jp') %></td>
               <% end %>
             </tr>
             <tr>
               <th scope="row">今週の損益</th>
               <% if @week_profit < 0 %>
-                <td style="color: red;"><%= sprintf("%+d",@week_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+                <td style="color: red;"><%= number_to_currency(@week_profit, :locale => 'jp') %></td>
               <% else %>
-                <td style="color: blue;"><%= sprintf("%+d",@week_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+                <td style="color: blue;"><%= number_to_currency(@week_profit, :locale => 'jp') %></td>
               <% end %>
             </tr>
             <tr>
               <th scope="row">今月の損益</th>
               <% if @month_profit < 0 %>
-                <td style="color: red;"><%= sprintf("%+d",@month_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+                <td style="color: red;"><%= number_to_currency(@month_profit, :locale => 'jp') %></td>
               <% else %>
-                <td style="color: blue;"><%= sprintf("%+d",@month_profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></td>
+                <td style="color: blue;"><%= number_to_currency(@month_profit, :locale => 'jp') %></td>
+              <% end %> 
+            </tr>
+            <tr>
+              <th scope="row">今年の損益</th>
+              <% if @year_profit < 0 %>
+                <td style="color: red;"><%= number_to_currency(@year_profit, :locale => 'jp') %></td>
+              <% else %>
+                <td style="color: blue;"><%= number_to_currency(@year_profit, :locale => 'jp') %></td>
               <% end %> 
             </tr>
           </tbody>

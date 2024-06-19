@@ -28,71 +28,71 @@
         <div class="card-body">
           <div class="row">
           <% if post.stock_name.present? %>
-            <div class="col-3 ">
+            <div class="col-2 ">
               <p class="font-weight-bold"><%= post.trade %></p>
             </div>
             <div class="col-2 ">
               <p><%= post.stock_code %></p>
             </div>
-            <div class="col-3">
+            <div class="col-2">
               <p><%= post.stock_name %></p>
             </div>
             <div class="col-2 text-right">
               <p>損益</p>
             </div>
-            <div class="col-2">
+            <div class="col-4">
               <% if post.profit < 0 %>
-                <p style="color: red;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+                <p style="color: red;"><%= number_to_currency(post.profit, :locale => 'jp') %></p>
               <% else %>
-                <p style="color: blue;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+                <p style="color: blue;"><%= number_to_currency(post.profit, :locale => 'jp') %></p>
               <% end %>
             </div>
           <% elsif post.currency.present? %>
             <div class="col-3 ">
               <p class="font-weight-bold"><%= post.trade %></p>
             </div>
-            <div class="col-5 ">
+            <div class="col-3 ">
               <p><%= post.currency %></p>
             </div>
             <div class="col-2 text-right">
               <p>損益</p>
             </div>
-            <div class="col-2">
+            <div class="col-4">
               <% if post.profit < 0 %>
-                <p style="color: red;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+                <p style="color: red;"><%= number_to_currency(post.profit, :locale => 'jp') %></p>
               <% else %>
-                <p style="color: blue;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+                <p style="color: blue;"><%= number_to_currency(post.profit, :locale => 'jp') %></p>
               <% end %>
             </div>
           <% elsif post.stock_index.present? %>
             <div class="col-3 ">
               <p class="font-weight-bold"><%= post.trade %></p>
             </div>
-            <div class="col-5 ">
+            <div class="col-3 ">
               <p><%= post.stock_index %></p>
             </div>
             <div class="col-2 text-right">
               <p>損益</p>
             </div>
-            <div class="col-2">
+            <div class="col-4">
               <% if post.profit < 0 %>
-                <p style="color: red;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+                <p style="color: red;"><%= number_to_currency(post.profit, :locale => 'jp') %></p>
               <% else %>
-                <p style="color: blue;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+                <p style="color: blue;"><%= number_to_currency(post.profit, :locale => 'jp') %></p>
               <% end %>
             </div>
           <% else %>
-            <div class="col-8 ">
+            <div class="col-6 ">
               <p class="font-weight-bold"><%= post.trade %></p>
             </div>
             <div class="col-2 text-right">
               <p>損益</p>
             </div>
-            <div class="col-2">
+            <div class="col-4">
               <% if post.profit < 0 %>
-                <p style="color: red;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+                <p style="color: red;"><%= number_to_currency(post.profit, :locale => 'jp') %></p>
               <% else %>
-                <p style="color: blue;"><%= sprintf("%+d",post.profit).to_s.reverse.gsub( /(\d{3})(?=\d)/, '\1,').reverse %></p>
+                <p style="color: blue;"><%= number_to_currency(post.profit, :locale => 'jp') %></p>
               <% end %>
             </div>
           <% end %>  

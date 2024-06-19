@@ -3,6 +3,9 @@ ja:
     attributes:
       post:
         stock_name: 株）銘柄
+        traded_at: 取引日：
+        trade: トレード：
+        profit: 損益額：
         
 
   datetime:

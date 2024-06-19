@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.includes(:photos, :user).order('created_at DESC').page(params[:page]).per(10)
+    @posts = Post.includes(:photos, :user).order('traded_at DESC').page(params[:page]).per(10)
   end
 
   def destroy
