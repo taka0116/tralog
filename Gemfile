@@ -59,5 +59,5 @@ gem 'carrierwave', '~> 2.0'
 gem "mini_magick"
 gem 'kaminari'
 
-# gem 'pg', group: :production
-gem 'mysql2', group: :production
+gem 'pg', group: :production
+# gem 'mysql2', group: :production

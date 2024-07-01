@@ -12,13 +12,7 @@ test:
   database: db/test.sqlite3
 
 production:
- <<: *default
- adapter: mysql2
- encoding: utf8
- pool: 5
- reconnect: false
- database: <%= ENV["MC_DATABASE"] %>
- username: <%= ENV["MC_DB_USERNAME"] %>
- password: <%= ENV["MC_DB_PASSWORD"] %>
- host: <%= ENV["MC_DB_HOSTNAME"] %>
-
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
