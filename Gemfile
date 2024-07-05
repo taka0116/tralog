@@ -3,11 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.3'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4', group: [:development, :test]
+gem 'sqlite3', '1.4.2', group: [:development, :test]
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -59,5 +58,5 @@ gem 'carrierwave', '~> 2.0'
 gem "mini_magick"
 gem 'kaminari'
 
-gem 'pg', "~> 1.4", group: :production
-# gem 'mysql2', group: :production
+# gem 'pg', "~> 1.4", group: :production
+gem 'mysql2', group: :production
