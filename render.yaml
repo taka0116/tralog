@@ -10,8 +10,8 @@ services:
     env: ruby
     region: singapore
     plan: free
-    buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec puma -C config/puma.rb"
+    buildCommand: bundle install && bundle exec rake assets:precompile && bundle exec rails db:migrate
+    startCommand: bundle exec rails s -p 10000
     envVars:
       - key: DATABASE_URL
         fromDatabase:
