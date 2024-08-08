@@ -19,7 +19,16 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.includes(:photos, :user).order('traded_at DESC').page(params[:page]).per(10)
+    if params[:filter] == 'my_posts' && user_signed_in?
+      @posts = current_user.posts.includes(:photos, :user).order('traded_at DESC').page(params[:page]).per(10)
+    else
+      @posts = Post.includes(:photos, :user).order('traded_at DESC').page(params[:page]).per(10)
+    end
+
+    respond_to do |format|
+      format.html
+      format.js   
+    end
   end
 
   def destroy
