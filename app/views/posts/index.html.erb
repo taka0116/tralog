@@ -1,6 +1,6 @@
-<div  id="filter-links">
-  <%= link_to '全ユーザー投稿', posts_path, remote: true %> |
-  <%= link_to 'ログインユーザー投稿', posts_path(filter: 'my_posts'), remote: true %>
+<div id="filter-links" class="mt-4">
+  <%= link_to '全ユーザー投稿', posts_path, remote: true, class: "btn btn-success" %>
+  <%= link_to 'ログインユーザー投稿', posts_path(filter: 'my_posts'), remote: true, class: "btn btn-warning" %>
 </div>
 
 <div id="post-list">
