@@ -3,6 +3,10 @@
   <%= link_to 'ログインユーザー投稿', posts_path(filter: 'my_posts'), remote: true, class: "btn btn-warning" %>
 </div>
 
+<div>
+  <p class="text-right"><strong><%= Time.zone.today.strftime("%Y年%m月%d日") %>時点</strong></p>
+</div>
+
 <div id="post-list">
   <%= render 'posts_list', posts: @posts %>
 </div>
